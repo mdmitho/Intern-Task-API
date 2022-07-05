@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import Home from './Components/Home/Home';
 
 function App() {
   return (
     <div className="App">
-      <h1 className="fs-1 fw-bold">hello</h1>
+     <Home></Home>
     </div>
   );
 }
