@@ -1,12 +1,12 @@
 import React from 'react';
-
-const Home = () => {
+import { Link } from "react-router-dom";
+const Nav = () => {
     return (
       <div>
         <h1 className="fs-1 fw-bold mt-5">Manage Comments</h1>
-        <button type="button" class="btn btn-dark mt-3">
+        <Link to="/accordion" type="button" class="btn btn-dark mt-3">
           Active Comments
-        </button>
+        </Link>
         <button type="button" class="btn btn-dark ms-5 mt-3">
           Deleted Comments
         </button>
@@ -14,4 +14,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Nav;
