@@ -28,11 +28,11 @@ console.log(comments);
                 </button>
               </form>
             </div>
-            <div class="card ">
+            <div class="card border">
               <div className="d-flex">
                 <div class="card-body">
                   <div className="border-bottom">
-                    <h5 class="card-title text-start">Name</h5>
+                    <h5 class="card-title text-start ps-2">Name</h5>
                   </div>
                   <p class="card-text">
                     {comments.map((comment) => (
@@ -40,9 +40,9 @@ console.log(comments);
                     ))}
                   </p>
                 </div>
-                <div class="card-body">
+                <div class="card-body border">
                   <div className="border-bottom">
-                    <h5 class="card-title">Comment</h5>
+                    <h5 class="card-title  text-start  ps-2">Comment</h5>
                   </div>
                   <p class="card-text">
                     {comments.map((comment) => (
