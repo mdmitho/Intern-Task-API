@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Comment = (props) => {
-  const { body } = props.comment;
+const Comment = ({ comment, handleAddToComments }) => {
+  const { body } = comment;
 
   return (
     <div className="">
@@ -10,7 +10,13 @@ const Comment = (props) => {
           <h6 class="card-text text-start m-2  p-2">{body.substr(0, 30) + "..."} </h6>
         </div>
         <div className="mt-3 ">
-          <input class="form-check-input text-end" type="checkbox" value="" id="flexCheckDefault" />
+          <input
+            onClick={() => handleAddToComments(comment)}
+            class="form-check-input text-end"
+            type="checkbox"
+            value=""
+            id="flexCheckDefault"
+          />
         </div>
       </div>
     </div>

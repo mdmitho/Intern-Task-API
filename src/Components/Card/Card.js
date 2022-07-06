@@ -1,14 +1,34 @@
 import React from 'react';
+import { useState } from 'react';
 import Comment from '../Comment/Comment';
 import Comments from '../Hook/Comments';
 import Name from '../Name/Name';
+import SetOrder from '../SetOrder/SetOrder';
 
 
 const Card = () => {
 
 const [comments,setComments]=Comments([])
+const [Orders,setOrders]=useState([])
 
-console.log(comments);
+console.log(Orders);
+
+const handleAddToComments = (comment) => {
+let NewComments = []
+
+const exits = Orders.find(comments => comments.id === comment.id)
+
+if(!exits){
+    comment.quantity =1
+    NewComments = [...Orders, comment];
+}
+else{
+    const rests = Orders.filter((comments) => comments.id !== comment.id);
+    NewComments = [...rests, exits];
+}
+
+setOrders(NewComments);
+};
 
     return (
       <div>
@@ -46,7 +66,11 @@ console.log(comments);
                   </div>
                   <p class="card-text">
                     {comments.map((comment) => (
-                      <Comment key={comment.id} comment={comment}></Comment>
+                      <Comment
+                        key={comment.id}
+                        comment={comment}
+                        handleAddToComments={handleAddToComments}
+                      ></Comment>
                     ))}
                   </p>
                 </div>
@@ -59,8 +83,13 @@ console.log(comments);
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">
-                  This is a longer card with supporting text below as a natural lead-in to
-                  additional content. This content is a little bit longer.
+                  {Orders.map((Order) => (
+                    <SetOrder
+                      key={Order.id}
+                      Order={Order}
+                     
+                    ></SetOrder>
+                  ))}
                 </p>
               </div>
             </div>
