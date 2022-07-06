@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react"
 
 const Comments =()=>{
-    const [comment,setComment] = useState([])
+    const [comments,setComments] = useState([])
 
 
     useEffect(() => {
       fetch("https://jsonplaceholder.typicode.com/posts/1/comments")
         .then((res) => res.json())
-        .then((data) => setComment(data));
+        .then((data) => setComments(data));
     }, []);
 
-return [comment, setComment]
+return [comments, setComments]
 }
 export default Comments
