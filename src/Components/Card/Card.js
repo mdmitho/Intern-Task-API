@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+
 import Comment from '../Comment/Comment';
 import Comments from '../Hook/Comments';
 import Name from '../Name/Name';
@@ -22,6 +23,7 @@ if(!exits){
     comment.quantity =1
     NewComments = [...Orders, comment];
 }
+
 else{
     const rests = Orders.filter((comments) => comments.id !== comment.id);
     NewComments = [...rests, exits];
@@ -80,18 +82,16 @@ setOrders(NewComments);
           <div class="col mt-5">
             <h5 className=" text-info text-start">Set Order</h5>
             <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  {Orders.map((Order) => (
-                    <SetOrder
-                      key={Order.id}
-                      Order={Order}
-                     
-                    ></SetOrder>
-                  ))}
-                </p>
-              </div>
+             
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    {Orders.map((Order) => (
+                      <SetOrder key={Order.id} Order={Order}></SetOrder>
+                    ))}
+                  </p>
+                </div>
+             
             </div>
           </div>
         </div>
